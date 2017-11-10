@@ -12,15 +12,17 @@ public class MainTest {
         boolean work = true;
 
         Service service = new Service();
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Type number of vehicles in your garage: ");
-        Scanner sc = new Scanner(System.in);
         quantitiesOfVehicles = sc.nextInt();
 
         CVehicle[] myGarageList = service.createMyGarageList(quantitiesOfVehicles);
 
+        /**
+         * Here we type number for choosing option
+         */
         service.typeChoice();
-
         int choice = sc.nextInt();
         service.consoleLogic(work, service, sc, myGarageList, choice);
 
