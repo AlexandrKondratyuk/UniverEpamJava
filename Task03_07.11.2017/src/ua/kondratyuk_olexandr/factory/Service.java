@@ -24,7 +24,7 @@ public class Service {
         System.out.println("\nWhat do you want to select?");
         System.out.println("1 - vehicle with minimal price");
         System.out.println("2 - vehicle with maximal speed");
-        System.out.println("3 - vehicle younger then 5 years");
+        System.out.println("3 - vehicle younger then SOME years");
         System.out.println("0 - to EXIT");
     }
 
