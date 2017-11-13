@@ -5,5 +5,4 @@ package ua.kondratyuk_olexandr.factory;
  */
 public interface IFlyAble {
 
-
 }

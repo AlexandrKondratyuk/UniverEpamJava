@@ -15,7 +15,7 @@ public class CPlane extends CVehicle implements IFlyAble{
         this.setPrice((int)(Math.random()*900_000)+100_000);
         this.setSpeed((int) (Math.random()*1_500)+100);
         this.setYear((short)((Math.random()*17)+2_001));
-        this.setHeight(((int) ((Math.random()*15)*100)+100));
+        this.setHeight(((int) ((Math.random()*15)*1000)+100));
         this.setPassengersNumber(((int) (Math.random()*100)));
     }
 
