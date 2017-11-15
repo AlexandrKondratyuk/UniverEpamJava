@@ -20,8 +20,8 @@ import java.util.Arrays;
  *         менты второй строки и т. д.; последним выводится центральный элемент
  *         матрицы.
  */
-public class sortArrayPart1 {
 
+public class TestClass {
     public static void main(String[] args) {
 
         int arrLength = 20;
@@ -35,24 +35,20 @@ public class sortArrayPart1 {
 
 
         System.out.println("\nSorted array using Insertion sort type");
+        myArray = array.createArray(arrLength);
         array.sortInsertion(myArray);
         System.out.println(Arrays.toString(myArray));
 
-        int minPositiveIndex = arrLength - 1;
-        for (int i = arrLength - 1; myArray[i] > 0; i--) {
-            minPositiveIndex = i;
-            if (myArray[i] <= 0) break;
-        }
 
-        int temp;
-        for (int i = minPositiveIndex, j = arrLength - 1; i < j; i++, j--) {
-            if (myArray[i] < myArray[j]) {
-                temp = myArray[j];
-                myArray[j] = myArray[i];
-                myArray[i] = temp;
-            }
-        }
         System.out.println("\nSorted array according to task 01");
+        myArray = array.createArray(arrLength);
+        array.sortTask01(myArray);
         System.out.println(Arrays.toString(myArray));
+
+        System.out.println("\nSorted array according to task 02");
+        myArray = array.createArray(arrLength);
+        array.sortTask02(myArray);
+        System.out.println(Arrays.toString(myArray));
+
     }
 }
