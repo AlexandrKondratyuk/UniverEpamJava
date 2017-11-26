@@ -33,7 +33,8 @@ public class Service {
 
         for (int i = 0; i < lengthOfArray1; i++) {
             for (int k = 0; k < lengthOfArray2; k++)
-                myArrMatrix[i][k] = (int) (Math.random() * 101) - 51;
+//                myArrMatrix[i][k] = (int) (Math.random() * 101) - 51;
+                myArrMatrix[i][k] = (int) (Math.random() * 3);
         }
         return myArrMatrix;
     }
@@ -109,6 +110,9 @@ public class Service {
                 arr[i + 1][0] = arr[i][0];
                 arr[i + 1][1] = arr[i][1];
                 j = i;
+            } else if (i == 0) {
+                keyValue = arr[i][0];
+                keyIndex = arr[i][1];
             }
             while (j > 0 && keyValue < arr[j - 1][0]) {
                 arr[j][0] = arr[j - 1][0];
