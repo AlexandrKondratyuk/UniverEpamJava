@@ -57,8 +57,6 @@ public class Problem_4 {
         }
         myMatrix = newSortedMatrix;
 
-
         return myMatrix;
     }
-
 }

@@ -46,6 +46,14 @@ public class TestProblems {
         myMatrix = problem_4.sortProblem4(myMatrix);
         Service.print(myMatrix);
 
-        
+        System.out.println("\n Выведение матрицы согласно Task 05");
+        Problem_5 problem_5 = new Problem_5();
+        arrLengthRows = 5;
+        myMatrix = problem_5.createSquareMatrix(arrLengthRows);
+        System.out.println("Квадратная матрица:");
+        Service.print(myMatrix);
+        problem_5.printProblem5(arrLengthRows);
+
+
     }
 }
