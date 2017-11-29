@@ -30,4 +30,8 @@ public enum TypeOfFigure {
     public static TypeOfFigure randomTypeOfFigure() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
+
+    public static List<TypeOfFigure> getVALUES() {
+        return VALUES;
+    }
 }

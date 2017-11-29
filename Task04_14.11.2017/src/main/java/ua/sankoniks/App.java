@@ -1,14 +1,10 @@
 package ua.sankoniks;
 
-import ua.sankoniks.entities.*;
 import ua.sankoniks.factory.AbstractFactory;
 import ua.sankoniks.factory.Factory;
-import ua.sankoniks.utility.Figure;
-import ua.sankoniks.utility.Service;
-import ua.sankoniks.utility.TypeOfFigure;
+import ua.sankoniks.utility.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Hello world!
@@ -21,15 +17,26 @@ public class App {
         System.out.println("4. тестируем методы фигур" + "\n");
 
         AbstractFactory factory = new Factory();
-        List<Figure> figures = factory.factoryMethodRandomFigure(20);
+        List<Figure> figures = factory.factoryMethodRandomFigure(10);
         System.out.println(figures);
 
         Service service = new Service(figures);
         List<Figure> colored = service.divideByColored(figures);
         List<Figure> notColored = service.divideByNotColored(figures);
 
-        System.out.println("\nColoredList ///" + colored.toString());
-        System.out.println("\nNot ColoredList///" + notColored.toString());
+//        System.out.println("\nColoredList ///" + colored.toString());
+//        System.out.println("\nNot ColoredList///" + notColored.toString());
+
+        System.out.println("\n");
+        Map<String, Integer> counterOfFigures = new HashMap<String, Integer>();
+        counterOfFigures = service.counterOfFigures(figures);
+        service.printMap(counterOfFigures);
+        System.out.println("Number of colored figure is - " + service.getCountColored());
+        System.out.println("Number of NOT colored figure is - " + service.getCountNotColored());
+
+        System.out.println("\n Сортировка списка фигур");
+        figures = service.sortFigures(figures);
+        service.printList(figures);
 
     }
 }

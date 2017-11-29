@@ -1,7 +1,9 @@
 package ua.sankoniks.utility;
 
 /**
- * Created by Sanko on 27.11.17.
+ * @author Kondratyuk Olexandr
+ *         <p>
+ *         Маркерный интерфейс для цветніх фигур
  */
 public interface Colored {
 }
