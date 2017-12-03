@@ -14,7 +14,14 @@ public class Service {
 
     private List<Figure> figures;
     private Figure[] arrFigures;
+    private List<Figure> coloredFigures = new ArrayList<>();
+    private List<Figure> notColoredFigures = new ArrayList<>();
+    public Service(List<Figure> figures) {
+        this.figures = figures;
+    }
     private int countColored;
+    private int countNotColored;
+
 
     public int getCountColored() {
         return countColored;
@@ -32,16 +39,6 @@ public class Service {
         this.countNotColored = countNotColored;
     }
 
-    private int countNotColored;
-
-    private List<Figure> coloredFigures = new ArrayList<>();
-    private List<Figure> notColoredFigures = new ArrayList<>();
-    private int numberOfColoredFigures;
-    private int numberOfNotColoredFigures;
-
-    public Service(List<Figure> figures) {
-        this.figures = figures;
-    }
 
     /**
      * метод отбора цветных фигур
@@ -63,6 +60,7 @@ public class Service {
         return coloredFigures;
     }
 
+
     /**
      * метод отбора НЕ цветных фигур
      *
@@ -82,6 +80,7 @@ public class Service {
         }
         return notColoredFigures;
     }
+
 
     /**
      * Метод для подсчета разных фигур
@@ -112,7 +111,11 @@ public class Service {
     }
 
 
-
+    /**
+     * Метод для сортировки фигур по типу, используя ENUM класс TypeOfFigures
+     * @param listFigures - собственно наш список фигур для сортировки
+     * @return отсортированный список фигур
+     */
     public List<Figure> sortFigures(List<Figure> listFigures) {
         figures = new ArrayList<>(listFigures.size());
         List<TypeOfFigure> listTypeOfFigures = TypeOfFigure.getVALUES();
@@ -143,6 +146,10 @@ public class Service {
         }
     }
 
+    /**
+     * Метод для печати парк ключ/значение (используетя для вывода в консоль количества по типам фигур)
+     * @param map
+     */
     public void printMap(Map<String, Integer> map) {
         System.out.println("Счетчик фигур");
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -153,6 +160,12 @@ public class Service {
         }
     }
 
+    /**
+     * Метод для сравнения типа фигур
+     *
+     * @param figure - экземпляр Фигуры
+     * @return результат сравнения
+     */
     public int compareTo(Figure figure) {
         return this.getClass().getSimpleName().compareTo(figure.getClass().getSimpleName());
     }

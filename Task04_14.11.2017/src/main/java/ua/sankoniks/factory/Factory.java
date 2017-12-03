@@ -44,7 +44,12 @@ public class Factory extends AbstractFactory {
     }
 
     public ColorPoligon createColorPoligon(Point[] arrPoints, int color) {
-        return new ColorPoligon(arrPoints, color);
+        ColorPoint[] arrColorPoint = new ColorPoint[arrPoints.length];
+        for (int i = 0; i < arrPoints.length; i++) {
+            arrColorPoint[i] = new ColorPoint(arrPoints[i].getX(),arrPoints[i].getY(), color);
+        }
+
+        return new ColorPoligon(arrColorPoint, color);
     }
 
     /**
@@ -90,10 +95,10 @@ public class Factory extends AbstractFactory {
                             createPoint((int) (Math.random() * 100), (int) (Math.random() * 100)),
                             (int) (Math.random() * 255)));
                 case "Poligon":
-                    listOfFIgures.add(createPoligon(arrPoints()));
+                    listOfFIgures.add(createPoligon(createArrPoints()));
                     break;
                 case "ColorPoligon":
-                    listOfFIgures.add(createColorPoligon(arrPoints(), (int) (Math.random() * 255)));
+                    listOfFIgures.add(createColorPoligon(createArrPoints(), (int) (Math.random() * 255)));
                     break;
                 default:
                     return null;
@@ -103,7 +108,11 @@ public class Factory extends AbstractFactory {
         return listOfFIgures;
     }
 
-    private Point[] arrPoints() {
+    /**
+     * Метод создает массив случайных точек
+     * @return
+     */
+    public Point[] createArrPoints() {
         int numberOfPoligonsApexes = (int) ((Math.random() * 3) +3) ;
         Point[] listOfPoints = new Point[numberOfPoligonsApexes];
         for (int i = 0; i < numberOfPoligonsApexes; i++) {
@@ -111,6 +120,5 @@ public class Factory extends AbstractFactory {
         }
         return listOfPoints;
     }
-
 
 }

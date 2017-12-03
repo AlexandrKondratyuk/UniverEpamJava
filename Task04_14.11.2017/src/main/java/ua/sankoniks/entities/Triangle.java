@@ -87,6 +87,31 @@ public class Triangle extends Figure{
         this.sideAC = sideAC;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Triangle triangle = (Triangle) o;
+
+        if (apexA != null ? !apexA.equals(triangle.apexA) : triangle.apexA != null) return false;
+        if (apexB != null ? !apexB.equals(triangle.apexB) : triangle.apexB != null) return false;
+        if (apexC != null ? !apexC.equals(triangle.apexC) : triangle.apexC != null) return false;
+        if (sideAB != null ? !sideAB.equals(triangle.sideAB) : triangle.sideAB != null) return false;
+        if (sideBC != null ? !sideBC.equals(triangle.sideBC) : triangle.sideBC != null) return false;
+        return sideAC != null ? sideAC.equals(triangle.sideAC) : triangle.sideAC == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = apexA != null ? apexA.hashCode() : 0;
+        result = 31 * result + (apexB != null ? apexB.hashCode() : 0);
+        result = 31 * result + (apexC != null ? apexC.hashCode() : 0);
+        result = 31 * result + (sideAB != null ? sideAB.hashCode() : 0);
+        result = 31 * result + (sideBC != null ? sideBC.hashCode() : 0);
+        result = 31 * result + (sideAC != null ? sideAC.hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {

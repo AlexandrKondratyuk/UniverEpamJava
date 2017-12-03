@@ -29,6 +29,24 @@ public class ColorLine extends Line implements Colored {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        ColorLine colorLine = (ColorLine) o;
+
+        return color == colorLine.color;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + color;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "ColorLine [color=" + color + ", Beg = " + getBeg() + ", End =" + getEnd() + "]";
     }

@@ -41,6 +41,23 @@ public class Line extends Figure {
         this.end = end;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Line line = (Line) o;
+
+        if (beg != null ? !beg.equals(line.beg) : line.beg != null) return false;
+        return end != null ? end.equals(line.end) : line.end == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = beg != null ? beg.hashCode() : 0;
+        result = 31 * result + (end != null ? end.hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {

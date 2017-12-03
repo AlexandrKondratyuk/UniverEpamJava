@@ -26,6 +26,21 @@ public class Poligon extends Figure {
         this.arrPoints = arrPoints;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Poligon poligon = (Poligon) o;
+
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(arrPoints, poligon.arrPoints);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arrPoints);
+    }
 
     @Override
     public String toString() {
