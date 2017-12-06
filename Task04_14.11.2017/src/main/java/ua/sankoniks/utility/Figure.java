@@ -7,4 +7,6 @@ package ua.sankoniks.utility;
  */
 public abstract class Figure {
 
+
+
 }

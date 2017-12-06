@@ -2,6 +2,7 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.*;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -9,9 +10,13 @@ import java.util.Arrays;
  *         <p>
  *         Класс для создания класса Poligon, который использует за основу класс Point
  */
-public class Poligon extends Figure {
+public class Poligon extends Figure implements Serializable {
 
     private Point[] arrPoints;
+
+    public Poligon() {
+        super();
+    }
 
     public Poligon(Point[] arrPoints) {
         super();

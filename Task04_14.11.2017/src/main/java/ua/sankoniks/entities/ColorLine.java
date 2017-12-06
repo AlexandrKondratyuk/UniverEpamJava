@@ -2,13 +2,15 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.Colored;
 
+import java.io.Serializable;
+
 /**
  * @author Kondratyuk Olexandr
  *         <p>
  *         Класс для создания класса ColorLine, который наследуется от Line с добавлением нового параметра color
  */
 
-public class ColorLine extends Line implements Colored {
+public class ColorLine extends Line implements Colored, Serializable {
 
     /**
      * @param color - цвет линии
@@ -19,6 +21,8 @@ public class ColorLine extends Line implements Colored {
         super(beg, end);
         this.color = color;
     }
+
+
 
     public int getColor() {
         return color;

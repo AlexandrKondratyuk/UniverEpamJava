@@ -2,10 +2,12 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.Colored;
 
+import java.io.Serializable;
+
 /**
  * Created by Sanko on 28.11.17.
  */
-public class ColorPoligon extends Poligon implements Colored {
+public class ColorPoligon extends Poligon implements Colored, Serializable {
 
     private int color;
 

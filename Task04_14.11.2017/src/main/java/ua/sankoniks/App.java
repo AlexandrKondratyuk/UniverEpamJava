@@ -4,6 +4,7 @@ import ua.sankoniks.factory.AbstractFactory;
 import ua.sankoniks.factory.Factory;
 import ua.sankoniks.utility.*;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -37,6 +38,75 @@ public class App {
         System.out.println("\n Сортировка списка фигур");
         figures = service.sortFigures(figures);
         service.printList(figures);
+
+
+        /**
+         * Блок записи в файл списка объектов
+         */
+        System.out.println("Старт блока записи данных в файл");
+        ObjectOutputStream oos = null;
+
+        try {
+            oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("figures.dat")));
+            oos.writeObject(figures);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        /**
+         * Блок чтения данных списка фигур с файла
+         */
+        System.out.println("Старт блока чтения данных с файла");
+        ObjectInputStream ois = null;
+        List<Figure> figuresFromFile = null;
+
+        try {
+            ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("figures.dat")));
+            figuresFromFile = (List<Figure>) ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        /**
+         * Выведение списка фигур, прочитанных с файла в консоль
+         */
+        System.out.println("Старт блока выведения данных с файла в консоль");
+        service.printList(figuresFromFile);
+
+
+        /**
+         * Проверка - правильно ли считался файл и есть ли объекты эквивалентны
+         */
+        boolean isEquals = false;
+        if (figuresFromFile.equals(figures)) {
+            isEquals = true;
+            System.out.println("figuresFromFile equals  figures");
+        } else {
+            isEquals = false;
+            System.out.println("figuresFromFile NOT equals  figures");
+        }
+
+        System.out.println();
+
 
     }
 }

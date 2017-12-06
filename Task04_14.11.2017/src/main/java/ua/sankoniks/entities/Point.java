@@ -2,13 +2,15 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.*;
 
+import java.io.Serializable;
+
 /**
  * @author Kondratyuk Olexandr
  *         <p>
  *         Класс для создания базового класса Point
  */
 
-public class Point extends Figure implements Cloneable {
+public class Point extends Figure implements Cloneable, Serializable {
 
     @Override
     protected Object clone() {
@@ -23,6 +25,10 @@ public class Point extends Figure implements Cloneable {
 
     private int x;
     private int y;
+
+    public Point() {
+        super();
+    }
 
     public Point(int x, int y) {
         super();

@@ -2,12 +2,14 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.*;
 
+import java.io.Serializable;
+
 /**
  * @author Kondratyuk Olexandr
  *         <p>
  *         Класс для создания класса Triangle для создания сущностей Треугольник
  */
-public class Triangle extends Figure{
+public class Triangle extends Figure implements Serializable{
 
     private Point apexA, apexB, apexC;
     private Line sideAB, sideBC, sideAC;

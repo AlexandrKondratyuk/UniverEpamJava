@@ -2,10 +2,12 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.Colored;
 
+import java.io.Serializable;
+
 /**
  * Created by Sanko on 28.11.17.
  */
-public class ColorTriangle extends Triangle implements Colored {
+public class ColorTriangle extends Triangle implements Colored, Serializable {
 
     private int color;
 

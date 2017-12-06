@@ -2,13 +2,15 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.Colored;
 
+import java.io.Serializable;
+
 /**
  * @author Kondratyuk Olexandr
  *         <p>
  *         Класс для создания класса ColorPoint, который наследуется от Point с добавлением нового параметра color
  */
 
-public class ColorPoint extends Point implements Colored {
+public class ColorPoint extends Point implements Colored, Serializable {
     private int color;
 
     public ColorPoint(int x, int y, int color) {

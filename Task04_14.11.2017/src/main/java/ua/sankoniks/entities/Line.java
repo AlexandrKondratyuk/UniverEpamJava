@@ -2,6 +2,8 @@ package ua.sankoniks.entities;
 
 import ua.sankoniks.utility.*;
 
+import java.io.Serializable;
+
 /**
  * @author Kondratyuk Olexandr
  *         <p>
@@ -9,9 +11,13 @@ import ua.sankoniks.utility.*;
  */
 
 
-public class Line extends Figure {
+public class Line extends Figure implements Serializable {
     private Point beg;
     private Point end;
+
+    public Line() {
+        super();
+    }
 
     public Line(Point beg, Point end) {
         super();
