@@ -106,7 +106,8 @@ public class App {
         }
 
         System.out.println();
-
+        String str;
+        System.out.println(str.intern());
 
     }
 }
